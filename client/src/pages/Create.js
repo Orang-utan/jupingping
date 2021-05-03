@@ -13,28 +13,36 @@ export default function Create() {
       <Formik initialValues={{ email: '', password: '' }} onSubmit={() => {}}>
         {({ errors, isSubmitting }) => (
           <Form>
+            <FormField name='title' type='title' label='标题' errors={errors} />
             <FormField
-              name='email'
-              type='email'
-              label='Title'
+              name='description'
+              type='description'
+              label='描述'
               errors={errors}
             />
             <FormField
-              name='password'
-              type='password'
-              label='Description'
+              name='maxParticipants'
+              type='maxParticipants'
+              label='最多人数'
+              errors={errors}
+            />
+            <FormField name='price' type='price' label='价格' errors={errors} />
+            <FormField
+              name='location'
+              type='location'
+              label='地点'
               errors={errors}
             />
             <FormField
-              name='email'
-              type='email'
-              label='Email'
+              name='startTime'
+              type='startTime'
+              label='开始时间'
               errors={errors}
             />
             <FormField
-              name='password'
-              type='password'
-              label='Password'
+              name='expiredTime'
+              type='expiredTime'
+              label='过期时间'
               errors={errors}
             />
             <button
