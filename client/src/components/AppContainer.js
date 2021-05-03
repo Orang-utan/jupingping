@@ -34,7 +34,7 @@ export default function AppContainer({ children }) {
       <ChildrenContainer>{children}</ChildrenContainer>
       <TabContainer>
         <Button href='/'>活动</Button>
-        <Button href='/me'>我的</Button>
+        <Button href='/user'>我的</Button>
       </TabContainer>
     </Container>
   );
