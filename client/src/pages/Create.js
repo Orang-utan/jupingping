@@ -16,13 +16,13 @@ export default function Create() {
             <FormField
               name='email'
               type='email'
-              label='Email'
+              label='Title'
               errors={errors}
             />
             <FormField
               name='password'
               type='password'
-              label='Password'
+              label='Description'
               errors={errors}
             />
             <FormField
