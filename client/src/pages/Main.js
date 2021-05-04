@@ -4,62 +4,69 @@ import styled from 'styled-components';
 
 const data = [
   {
-    title: 'Title 1',
-    description: 'desc1',
+    title: '《蛊魂铃》',
+    description: '6人剧，速来救场！',
     creatorName: 'YIDA',
     price: 60,
     time: '12:00',
     address: '八宝坑35号',
-    currentPart: 4,
+    currentPart: 3,
     maxPart: 6,
     distance: 300,
     gameType: true,
+    creatorGender: true,
   },
   {
-    title: 'Title 2',
-    description: 'desc1',
-    creatorName: 'YIDA',
-    price: 60,
-    time: '12:00',
-    address: '八宝坑35号',
-    currentPart: 4,
+    title: '狼人杀',
+    description: '高手场，高手速入！',
+    creatorName: 'John',
+    price: 20,
+    time: '09:30',
+    address: '八宝坑29号',
+    currentPart: 5,
     maxPart: 6,
     distance: 200,
     gameType: false,
+    creatorGender: true,
   },
   {
-    title: 'Title 3',
-    description: 'desc1',
-    creatorName: 'YIDA',
-    price: 60,
-    time: '12:00',
-    address: '八宝坑35号',
-    currentPart: 4,
-    maxPart: 6,
+    title: '狼人杀局',
+    description: '有萌妹子哟，miumiu~',
+    creatorName: 'Linda',
+    price: 100,
+    time: '13:50',
+    address: '翠荫路29号3栋',
+    currentPart: 10,
+    maxPart: 12,
     distance: 400,
     gameType: false,
+    creatorGender: false,
   },
   {
-    title: 'Title 4',
-    description: 'desc1',
-    price: 60,
-    time: '12:00',
-    address: '八宝坑35号',
-    currentPart: 4,
+    title: '《何似在人间》',
+    description: '城市之光，我是Q~',
+    price: 240,
+    time: '08:45',
+    address: '泰安路3号5A',
+    currentPart: 2,
     maxPart: 6,
     distance: 300,
     gameType: true,
+    creatorGender: true,
+    creatorName: 'Bobby'
   },
   {
-    title: 'Title 1',
-    description: 'desc1',
-    price: 60,
-    time: '12:00',
-    address: '八宝坑35号',
-    currentPart: 4,
-    maxPart: 6,
+    title: '狼人杀',
+    description: '高颜值场，入局爆照~',
+    price: 25,
+    time: '16:30',
+    address: '后海大道5号6A',
+    currentPart: 7,
+    maxPart: 8,
     distance: 300,
     gameType: false,
+    creatorGender: false,
+    creatorName: 'Lisa',
   },
 ];
 
@@ -106,12 +113,14 @@ const LocationBar = styled.div`
 `;
 
 const CalendarButton = styled.button`
+  background-color: #eff0fe;
+  border-color: transparent;
+  border-radius: 5px;
+
   width: 60px;
   height: 30px;
 
-  border-radius: 5px;
-  background-color: white;
-  border-color: white;
+  font-size: 11px
 `;
 
 export default function Main() {
@@ -140,11 +149,8 @@ export default function Main() {
         </button>
       </LocationBar>
 
-      <Header>
-        <ActionButton href='/create'>创建</ActionButton>
-      </Header>
       <ButtonBar>
-        <CalendarButton>今天</CalendarButton>
+        <CalendarButton style={{width: '60px'}}>今天</CalendarButton>
         <CalendarButton>星期一</CalendarButton>
         <CalendarButton>星期二</CalendarButton>
         <CalendarButton>星期三</CalendarButton>

@@ -24,7 +24,7 @@ const Right = styled.div`
 `;
 
 export default function EventCard({
-  card: { title, gameType, creatorName, description, price, time, address, currentPart, maxPart, distance},
+  card: { title, gameType, creatorName, description, price, time, address, currentPart, maxPart, distance, creatorGender},
 }) {
   let iconPath;
   if(gameType){
@@ -34,13 +34,21 @@ export default function EventCard({
     iconPath = 'imgs/werewolfIcon.png';
   }
 
+  let avatarPath;
+  if(creatorGender){
+    avatarPath = 'imgs/avatar_male.png';
+  }
+  else{
+    avatarPath = 'imgs/avatar_female.png'
+  }
+
   return (
     <Container>
       <Left>
         <div style={{position: 'relative'}}>
           <img src={iconPath} style={{width: '25px', height: '25px'}}/>
           <span style={{position: 'absolute', marginLeft: '10px', fontSize: '24px', transform: 'translate(0%, -15%)'}}><strong>{title}</strong></span>
-          <span style={{position: 'absolute', marginLeft: '100px', fontSize: '18px'}}>￥{price}/人</span>
+          <span style={{position: 'absolute', marginLeft: '200px', fontSize: '18px'}}>￥{price}/人</span>
         </div>
 
         <div style={{marginTop: '10px'}}>
@@ -52,23 +60,14 @@ export default function EventCard({
         </div>
 
         <div style={{marginTop: '25px', position: 'relative'}}>
-          <svg height='28' width='28'>
-            <circle
-              cx='14'
-              cy='14'
-              r='13'
-              stroke='#979797'
-              stroke-width='1'
-              fill='#D8D8D8'
-            />
-          </svg>
+          <img src={avatarPath} style={{width: '28px', height: '28px'}}/>
           <span style={{fontSize: '14px', position: 'absolute', marginLeft: '10px', transform: 'translate(0%, 20%)'}}>{creatorName}</span>
       </div>
 
 
       </Left>
       <Right style={{position: 'relatice'}}>
-        <div style={{fontSize: '36px', textAlign: 'right' , position: 'absolute', transform: 'translate(0%, -120%)'}}>
+        <div style={{fontSize: '36px', textAlign: 'right' , position: 'absolute', transform: 'translate(-10%, -120%)', textAlign: 'right'}}>
           {currentPart}/{maxPart}
         </div>
         <div style={{color: '#6D7278', flexGrow: '2', position: 'absolute', transform: 'translate(0%, 120%)'}}>

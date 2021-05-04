@@ -27,20 +27,13 @@ else{
     return(
         <div>
           <div style={{width: '100%', height: '50px', border: 'solid 0.5px #f0f0f0'}}>
-            <button style={{width: '30px', height: '30px', marginTop: '10px', marginLeft: '15px', backgroundColor: 'transparent', borderColor: 'transparent'}}>
-              <img src='imgs/return.png' style={{height: '100%'}}></img>
-            </button>  
+            <a  href='/user' 
+            style={{width: '30px', height: '30px', marginTop: '10px', marginLeft: '15px', backgroundColor: 'transparent', borderColor: 'transparent'}}>
+              <img src='imgs/return.png' style={{height: '30px', marginTop: '10px'}}></img>
+            </a>  
           </div>
           <UserInfoContainer>
             <img src={avatarPath} style={{width: '70px', height: '70px', margin: '10px'}}/>
-          </UserInfoContainer>
-          <UserInfoContainer style={{marginTop: '15px'}}>
-            <img src='src/pages/编辑.png' alt='' />
-            <button
-              style={{ border: 'transparent', backgroundColor: '#eff0fe', width: '55px', height: '21px', borderRadius: '10.5px' }}
-            >
-              <span style={{fontSize: '10px'}}>修改头像</span>
-            </button>
           </UserInfoContainer>
 
           <DetailInfoContainer>

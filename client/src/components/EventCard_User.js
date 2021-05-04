@@ -24,7 +24,7 @@ const Right = styled.div`
   flex-grow: 0;
 `;
 
-export default function EventCard_User({ card: { gameType, creatorName, startTime, participants, maxParticipants, title, description, price, location, distance } }) {
+export default function EventCard_User({ card: { gameType, creatorName, startTime, participants, maxParticipants, title, description, price, location, distance, creatorGender } }) {
   let iconPath;
   if(gameType){
     iconPath = 'imgs/scriptIcon.png';
@@ -41,6 +41,14 @@ export default function EventCard_User({ card: { gameType, creatorName, startTim
     status = '拼车中';
   }
 
+  let avatarPath;
+  if(creatorGender){
+    avatarPath = 'imgs/avatar_male.png';
+  }
+  else{
+    avatarPath = 'imgs/avatar_female.png'
+  }
+
   //const month = startTime.getMonth();
   
   return (
@@ -54,9 +62,9 @@ export default function EventCard_User({ card: { gameType, creatorName, startTim
         </div>
 
         <div style={{marginTop: '10px'}}>
-          <span style={{marginTop: '10px', fontSize: '18px'}}>星期一</span>
+          <span style={{marginTop: '10px', fontSize: '18px'}}>星期二</span>
           <span style={{ marginLeft: '10px', fontSize: '18px' }}>5月4日</span>
-          <span style={{ marginLeft: '10px', fontSize: '18px' }}>12:30</span>
+          <span style={{ marginLeft: '10px', fontSize: '18px' }}>{startTime}</span>
         </div>
 
         <div style={{marginTop: '15px', fontSize: '18px'}}>
@@ -65,16 +73,7 @@ export default function EventCard_User({ card: { gameType, creatorName, startTim
         </div>
 
         <div style={{marginTop: '25px', position: 'relative'}}>
-          <svg height='28' width='28'>
-          <circle
-            cx='14'
-            cy='14'
-            r='13'
-            stroke='#979797'
-            stroke-width='1'
-            fill='#D8D8D8'
-          />
-          </svg>
+          <img src={avatarPath} style={{width: '28px', height: '28px'}}/>
           <span style={{fontSize: '14px', marginLeft: '15px', position: 'absolute', top: '50%', transform: 'translate(0%, -65%)'}}>{creatorName}</span>
           <img src='imgs/tel.png'  style={{width: "20px", height: '20px', marginLeft: '120px', position: 'absolute', top: '50%', transform: 'translate(0%, -65%)'}}/>
         </div>
