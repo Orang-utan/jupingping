@@ -10,7 +10,8 @@ const TabContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 20px;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(255,255,255,1);
+  border: #979797 1px solid;
 `;
 
 const ChildrenContainer = styled.div`
@@ -18,14 +19,11 @@ const ChildrenContainer = styled.div`
 `;
 
 const Button = styled.a`
-  flex-grow: 1;
-  padding: 20px 0px;
+  flex-direction: column;
+  padding: 10px 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ecf0f1;
-  margin: 15px;
-  border-radius: 15px;
 `;
 
 export default function AppContainer({ children }) {
@@ -33,8 +31,17 @@ export default function AppContainer({ children }) {
     <Container>
       <ChildrenContainer>{children}</ChildrenContainer>
       <TabContainer>
-        <Button href='/'>活动</Button>
-        <Button href='/user'>我的</Button>
+        <Button href='/'>
+          <img src='imgs/Games_clicked.png' style={{width: '30px', height: '30px'}}/>
+          <div style={{fontSize: '10px'}}>活动</div>
+        </Button>
+        <Button href='/create'>
+          <img src='imgs/Create.png' style={{width: '40px', height: '40px'}}/>
+        </Button>
+        <Button href='/user'>
+          <img src='imgs/User_clicked.png' style={{width: '30px', height: '30px'}}/>
+          <div style={{fontSize: '10px'}}>我的</div>
+        </Button>
       </TabContainer>
     </Container>
   );
