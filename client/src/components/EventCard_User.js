@@ -3,8 +3,8 @@ import styled from 'styled-components';
 const Container = styled.div`
   background-color: #fffff;
   border: black;
-  margin: 15px;
-  padding: 20px;
+  margin: 10px;
+  padding: 15px;
   border-radius: 20px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.26);
 
@@ -20,28 +20,77 @@ const Left = styled.div`
 `;
 const Right = styled.div`
   display: flex;
+  flex-direction: column;
   flex-grow: 0;
 `;
 
-export default function EventCard_User({ card: { title, fee } }) {
+export default function EventCard_User({ card: { gameType, creatorName, startTime, participants, maxParticipants, title, description, price, location, distance } }) {
+  let iconPath;
+  if(gameType){
+    iconPath = 'imgs/scriptIcon.png';
+  }
+  else{
+    iconPath = 'imgs/werewolfIcon.png';
+  }
+
+  let status;
+  if(participants.length >= maxParticipants){
+    status = '已拼成';
+  }
+  else{
+    status = '拼车中';
+  }
+
+  //const month = startTime.getMonth();
+  
   return (
     <Container>
       <Left>
-        <div>
-          <img src='imgs/logo.png' />
-          <span>狼人杀</span>
-          <span style={{ marginLeft: '10px' }}>{title}</span>
-          <span style={{ marginLeft: '20px' }}>￥{fee}/人</span>
+        <div style={{position: 'relative'}}>
+          <img src={iconPath} style={{width: "28px", height: "28px"}}/>
+          <span style={{ marginLeft: '10px', fontSize: '18px', position: 'absolute', top: '50%', transform: 'translate(0%, -55%)', letterSpacing: '-1.5px', fontFamily: 'arial'}}>
+            <pre>{title}  ￥{price}/人</pre>
+          </span>
         </div>
 
-        <div>
-          <span>星期一</span>
-          <span style={{ marginLeft: '10px' }}>5月4日</span>
-          <span style={{ marginLeft: '10px' }}>12:00</span>
+        <div style={{marginTop: '10px'}}>
+          <span style={{marginTop: '10px', fontSize: '18px'}}>星期一</span>
+          <span style={{ marginLeft: '10px', fontSize: '18px' }}>5月4日</span>
+          <span style={{ marginLeft: '10px', fontSize: '18px' }}>12:30</span>
+        </div>
+
+        <div style={{marginTop: '15px', fontSize: '18px'}}>
+          <span>{location}</span>
+          <span style={{marginLeft: '20px', color: 'grey'}}>{distance}m</span>
+        </div>
+
+        <div style={{marginTop: '25px', position: 'relative'}}>
+          <svg height='28' width='28'>
+          <circle
+            cx='14'
+            cy='14'
+            r='13'
+            stroke='#979797'
+            stroke-width='1'
+            fill='#D8D8D8'
+          />
+          </svg>
+          <span style={{fontSize: '14px', marginLeft: '15px', position: 'absolute', top: '50%', transform: 'translate(0%, -65%)'}}>{creatorName}</span>
+          <img src='imgs/tel.png'  style={{width: "20px", height: '20px', marginLeft: '120px', position: 'absolute', top: '50%', transform: 'translate(0%, -65%)'}}/>
         </div>
       </Left>
       <Right>
-        <span style={{ fontSize: '14px' }}>已拼成</span>
+        <div style={{ fontSize: '14px', flexGrow: '1', textAlign: 'right', transform: 'translate(-8%, 0%)'}}>{status}</div>
+
+        <div style={{fontSize: '36px', flexGrow: '3', textAlign: 'right', transform: 'translate(-8%, 0%)'}}>{participants.length}/{maxParticipants}</div>
+
+        <div style={{marginTop: '60px'}}><button style={{
+          height: '25px', 
+          width: '60px', 
+          borderRadius: '12.5px',
+          border: '1.5px solid #000000',
+          backgroundColor: '#ffffff'
+        }}>跳车</button></div>
       </Right>
     </Container>
   );

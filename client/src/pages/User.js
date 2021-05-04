@@ -3,14 +3,15 @@ import styled from 'styled-components';
 import React from 'react';
 
 const data = [
-  { title: 'Title 1', fee: 80 },
-  { title: 'Title 2', fee: 60 },
-  { title: 'Title 3', fee: 20 },
+  { gameType: true, creatorName: 'Eason', startTime: new Date(), participants: ['A', 'B', 'C', 'D'], maxParticipants: 8, title: '《古木吟》', price: 80, location: '八宝坑35号', distance: 300 },
+  { gameType: false, creatorName: 'Bobby', participants: ['A', 'B', 'C', 'D', 'E'], maxParticipants: 5, title: '狼人杀局', price: 60, location: '八宝坑29号', distance: 200 },
+  /*{ title: 'Title 3', fee: 20 },
   { title: 'Title 4', fee: 800 },
-  { title: 'Title 5', fee: 400 },
+  { title: 'Title 5', fee: 400 },*/
 ];
 
-const userName = 'Bobby';
+const userName = 'Eason';
+const userGender = true;
 
 const UserInfoContainer = styled.div`
   background-color: #ffffff;
@@ -19,69 +20,43 @@ const UserInfoContainer = styled.div`
   align-items: center;
 `;
 
-const EditInfoContainer = styled.div`
-  background-color: #eff0fe;
-  height: 30px;
-  width: 120px;
-  border-radius: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const NavigateBarContainer = styled.div`
-  background-color: #ffffff;
-  border: 1px solid #979797;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
 export default function User() {
+  let avatarPath = '';
+  if(userGender == true){
+    avatarPath = 'imgs/avatar_male.png';
+  }
+  else{
+    avatarPath = 'imgs/avatar_female.png';
+  }
+
   return (
     <div>
-      <image src='src/pages/1.png'></image>
+      <div style={{width: '100%', height: '50px', border: 'solid 0.5px #f0f0f0'}}></div>
 
       <UserInfoContainer>
-        <svg height='100' width='100'>
-          <circle
-            cx='50'
-            cy='50'
-            r='40'
-            stroke='grey'
-            stroke-width='1'
-            fill='silver'
-          />
-        </svg>
+        <img src={avatarPath} style={{width: '70px', height: '70px', margin: '10px'}}></img>
       </UserInfoContainer>
       <UserInfoContainer>
-        <h1>{userName}</h1>
+        <span style={{fontSize: '18px'}}><strong>{userName}</strong></span>
       </UserInfoContainer>
-      <UserInfoContainer>
-        <EditInfoContainer>
+      <UserInfoContainer style={{marginTop: '15px'}}>
           <img src='src/pages/编辑.png' alt='' />
           <button
-            style={{ border: 'transparent', backgroundColor: 'transparent' }}
+            style={{ border: 'transparent', backgroundColor: '#eff0fe', width: '65px', height: '21px', borderRadius: '10.5px' }}
           >
-            编辑资料
+            <img src='imgs/edit.png' style={{width: '10px', height: '10px'}}/>
+            <span style={{fontSize: '10px'}}>编辑资料</span>
           </button>
-        </EditInfoContainer>
       </UserInfoContainer>
-      <UserInfoContainer>
-        <h3>我的活动</h3>
+      <UserInfoContainer style={{marginTop: '20px'}}>
+        <span style={{fontSize: '14px'}}><strong>我的活动</strong></span>
       </UserInfoContainer>
-
+      
       <div>
         {data.map((card) => (
           <EventCard card={card} />
         ))}
       </div>
-
-      <NavigateBarContainer>
-        <button>活动</button>
-        <button>我的</button>
-      </NavigateBarContainer>
     </div>
   );
 }
